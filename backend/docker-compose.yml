@@ -1,0 +1,8 @@
+# Local PostgreSQL only:  docker compose up -d   (then: cp .env.example .env, set DB_PASSWORD=postgres, DB_NAME=bookleaf)
+services:
+  db:
+    image: postgres:16
+    environment: { POSTGRES_USER: postgres, POSTGRES_PASSWORD: postgres, POSTGRES_DB: bookleaf }
+    ports: ['5432:5432']
+    volumes: [pgdata:/var/lib/postgresql/data]
+volumes: { pgdata: {} }
